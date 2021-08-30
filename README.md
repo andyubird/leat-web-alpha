@@ -1,2 +1,2 @@
 # leat-web-alpha
-Created with CodeSandbox
+地方電力分析工具
