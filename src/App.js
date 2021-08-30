@@ -10,8 +10,9 @@ import Home from "./Home/Home.js";
 import styled from "styled-components";
 
 const NavUnlisted = styled.ul`
-  //display: flex;
-  text-align:justify a {
+  display: space-evenly;
+
+  a {
     text-decoration: none;
   }
 
@@ -21,7 +22,7 @@ const NavUnlisted = styled.ul`
     padding: 10px;
     //font-size: 1.3rem;
     //position: relative;
-    //list-style: none;
+    list-style: none;
     display: inline-block;
   }
 
