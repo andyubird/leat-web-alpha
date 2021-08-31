@@ -3,66 +3,59 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink
+  NavLink,
+  Link,
+  useRouteMatch
 } from "react-router-dom";
 import Overall from "./Overall/Overall.js";
 import Home from "./Home/Home.js";
-import styled from "styled-components";
+import Box from "@material-ui/core/Box";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
-const NavUnlisted = styled.ul`
-  display: space-evenly;
+function MyTabs() {
+  // You need to provide the routes in descendant order.
+  // This means that if you have nested routes like:
+  // users, users/new, users/edit.
+  // Then the order should be ['users/add', 'users/edit', 'users'].
+  const routeMatch = useRouteMatch([
+    "/overall",
+    "/service",
+    "/gov",
+    "/agri",
+    "/industry",
+    "/resident",
+    "/"
+  ]);
+  const currentTab = routeMatch?.path;
 
-  a {
-    text-decoration: none;
-  }
-
-  li {
-    color: black;
-    margin: 0 0.8rem;
-    padding: 10px;
-    //font-size: 1.3rem;
-    //position: relative;
-    list-style: none;
-    display: inline-block;
-  }
-
-  .current {
-    li {
-      border-bottom: 2px solid black;
-    }
-  }
-`;
+  return (
+    <Tabs
+      value={currentTab}
+      variant="scrollable"
+      scrollButtons="auto"
+      aria-label="scrollable auto tabs example"
+    >
+      <Tab label="首頁" value="/" to="/" component={Link} />
+      <Tab label="整體" value="/overall" to="/overall" component={Link} />
+      <Tab label="服務業" value="/service" to="/service" component={Link} />
+      <Tab label="機關" value="/gov" to="/gov" component={Link} />
+      <Tab label="農林漁牧業" value="/agri" to="/agri" component={Link} />
+      <Tab label="工業" value="/industry" to="/industry" component={Link} />
+      <Tab label="住宅" value="/resident" to="/resident" component={Link} />
+    </Tabs>
+  );
+}
 
 export default function App() {
   return (
     <div className="App">
-      <h1>地方電力分析工具-網頁版 Alpha 0.1</h1>
       <Router>
+        <CssBaseline />
+        <MyTabs />
         <div>
-          <NavUnlisted>
-            <NavLink to="/" activeClassName="current" exact>
-              <li>首頁</li>
-            </NavLink>
-            <NavLink to="/overall" activeClassName="current" exact>
-              <li>整體售電</li>
-            </NavLink>
-            <NavLink to="/overall" activeClassName="current" exact>
-              <li>服務業售電</li>
-            </NavLink>
-            <NavLink to="/overall" activeClassName="current" exact>
-              <li>機關售電</li>
-            </NavLink>
-            <NavLink to="/overall" activeClassName="current" exact>
-              <li>農林漁牧業售電</li>
-            </NavLink>
-            <NavLink to="/overall" activeClassName="current" exact>
-              <li>工業售電</li>
-            </NavLink>
-            <NavLink to="/overall" activeClassName="current" exact>
-              <li>住宅售電</li>
-            </NavLink>
-          </NavUnlisted>
-
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
