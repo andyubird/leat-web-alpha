@@ -3,13 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink,
   Link,
   useRouteMatch
 } from "react-router-dom";
 import Overall from "./Overall/Overall.js";
 import Home from "./Home/Home.js";
-import Box from "@material-ui/core/Box";
+//import Box from "@material-ui/core/Box";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
@@ -55,7 +54,7 @@ export default function App() {
       <Router>
         <CssBaseline />
         <MyTabs />
-        <div>
+        <main>
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
@@ -66,7 +65,7 @@ export default function App() {
               <Home />
             </Route>
           </Switch>
-        </div>
+        </main>
       </Router>
     </div>
   );
