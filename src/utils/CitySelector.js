@@ -32,7 +32,7 @@ const cities = [
 ];
 
 export default function BasicSelect(props) {
-  const [county, setCounty] = React.useState("嘉義縣");
+  const [county, setCounty] = React.useState("");
 
   const handleChange = (e) => {
     if (props.callbackFromParent) {
@@ -42,7 +42,7 @@ export default function BasicSelect(props) {
   };
 
   return (
-    <FormControl>
+    <FormControl fullWidth>
       <InputLabel id="demo-simple-select-label">縣市</InputLabel>
       <Select
         labelId="demo-simple-select-label"

@@ -1,61 +1,36 @@
-// 以下為Component範例。直接使用也可以。
 import * as React from "react";
-//import Box from "@material-ui/core/Box";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-const cities = [
-  "台北市",
-  "新北市",
-  "桃園市",
-  "台中市",
-  "台南市",
-  "高雄市",
-  "新竹縣",
-  "苗栗縣",
-  "彰化縣",
-  "南投縣",
-  "雲林縣",
-  "嘉義縣",
-  "屏東縣",
-  "宜蘭縣",
-  "花蓮縣",
-  "台東縣",
-  "澎湖縣",
-  "金門縣",
-  "連江縣",
-  "基隆市",
-  "新竹市",
-  "嘉義市"
-];
+const yearList = [2016, 2017, 2018, 2019, 2020, 2021];
 
 export default function BasicSelect(props) {
-  const [county, setCounty] = React.useState("嘉義縣");
+  const [year, setYear] = React.useState("");
 
   const handleChange = (e) => {
     if (props.callbackFromParent) {
       props.callbackFromParent(e.target.value);
     }
-    setCounty(e.target.value);
+    setYear(e.target.value);
   };
 
-  const yearList = 0;
+  //const yearList = 0;
 
   return (
-    <FormControl>
-      <InputLabel id="demo-simple-select-label">縣市</InputLabel>
+    <FormControl fullWidth>
+      <InputLabel id="demo-simple-select-label">{props.label}</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        label="縣市"
-        value={county}
+        label={props.label}
+        value={year}
         onChange={handleChange}
       >
-        {cities.map((city) => (
-          <MenuItem key={city} value={city}>
-            {city}
+        {yearList.map((year) => (
+          <MenuItem key={year} value={year}>
+            {year}
           </MenuItem>
         ))}
       </Select>
