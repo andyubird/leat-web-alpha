@@ -26,11 +26,13 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9)
 ];
 
+console.log(rows);
+
 export default function BasicTable() {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={"div"}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>

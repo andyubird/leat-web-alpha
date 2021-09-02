@@ -7,12 +7,14 @@ import Container from "@material-ui/core/Container";
 import Datagrid from "./components/Datagrid";
 import SectorBarChart from "./components/SectorBarChart";
 import MonthlyBarChart from "./components/MonthlyBarChart";
+import { useProcessCityCSV } from "../utils/DataProcessor";
 
 function log(txt) {
   console.log(txt);
 }
 
 export default function Overall() {
+  log(useProcessCityCSV());
   return (
     <Container>
       <Box mt={3}>
