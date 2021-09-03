@@ -36,11 +36,12 @@ export default function BasicTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>項目</TableCell>
+            <TableCell align="right">住宅</TableCell>
+            <TableCell align="right">服務業</TableCell>
+            <TableCell align="right">農林漁牧業</TableCell>
+            <TableCell align="right">工業</TableCell>
+            <TableCell align="right">合計</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

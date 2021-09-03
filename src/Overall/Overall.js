@@ -8,6 +8,7 @@ import Datagrid from "./components/Datagrid";
 import SectorBarChart from "./components/SectorBarChart";
 import MonthlyBarChart from "./components/MonthlyBarChart";
 import { useProcessCityCSV } from "../utils/DataProcessor";
+import { Paper } from "@material-ui/core";
 
 function log(txt) {
   console.log(txt);
