@@ -1,8 +1,8 @@
-import csvData from "../data/1_city_202107.csv";
-import { readString } from "react-papaparse";
+//import csvData from "../data/1_city_202107.csv";
+//import { readString } from "react-papaparse";
 import Numeral from "numeraljs";
 import moment from "moment";
-import dataObj from "../data/1_city.json"
+import dataObj from "../data/1_city.json";
 
 //#region Process Data
 
