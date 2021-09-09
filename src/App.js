@@ -8,11 +8,15 @@ import {
 } from "react-router-dom";
 import Overall from "./Overall/Overall.js";
 import Home from "./Home/Home.js";
-//import Box from "@material-ui/core/Box";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import {
+  Grid,
+  Box,
+  Tabs,
+  Tab,
+  CssBaseline,
+  Container,
+  Link as Lk
+} from "@material-ui/core";
 
 function MyTabs() {
   // You need to provide the routes in descendant order.
@@ -54,19 +58,34 @@ export default function App() {
       <Router>
         <CssBaseline />
         <MyTabs />
-        <main>
-          {/* A <Switch> looks through its children <Route>s and
+        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/overall">
-              <Overall />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </main>
+        <Switch>
+          <Route path="/overall">
+            <Overall />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </Router>
+      <footer>
+        <Box bgcolor="text.secondary" color="white">
+          <Container p={0}>
+            <Grid container>
+              <Grid item xs textAlign="center">
+                <Lk
+                  underline="hover"
+                  href="https://www.facebook.com/DENDoENergy/"
+                  color="inherit"
+                >
+                  地方電力分析工具 網頁版 Alpha 0.1 © G100
+                </Lk>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+      </footer>
     </div>
   );
 }
