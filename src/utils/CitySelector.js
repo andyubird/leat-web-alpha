@@ -32,7 +32,7 @@ const cities = [
 ];
 
 export default function BasicSelect(props) {
-  const [county, setCounty] = React.useState("");
+  const [county, setCounty] = React.useState(props.value);
 
   const handleChange = (e) => {
     if (props.callbackFromParent) {

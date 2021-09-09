@@ -7,7 +7,7 @@ import Select from "@material-ui/core/Select";
 const yearList = [2016, 2017, 2018, 2019, 2020, 2021];
 
 export default function BasicSelect(props) {
-  const [year, setYear] = React.useState("");
+  const [year, setYear] = React.useState(props.value);
 
   const handleChange = (e) => {
     if (props.callbackFromParent) {

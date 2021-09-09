@@ -1,4 +1,4 @@
-import csvData from "../data/1_city_202106.csv";
+import csvData from "../data/1_city_202107.csv";
 import { readString } from "react-papaparse";
 import Numeral from "numeraljs";
 import moment from "moment";
@@ -45,6 +45,15 @@ const dataObj = data.reduce((acc, e, idx) => {
   return acc;
 }, []);
 
+Object.keys(dataObj).forEach(function (key) {
+  dataObj[key]["日期"] = moment(
+    dataObj[key]["日期"],
+    "YYYY年MM月",
+    "zh-tw",
+    true
+  ).format("YYYY-MM-DD");
+});
+
 // function rowsToObjects(headers, rows) {
 //   return rows.reduce((acc, e, idx) => {
 //     acc.push(
@@ -59,8 +68,36 @@ const dataObj = data.reduce((acc, e, idx) => {
 
 //#endregion Process Data
 
-console.log(data);
+//console.log(data);
 
-export function useProcessCityCSV() {
+export function useFetchData() {
   return dataObj;
+}
+
+export function useFilter(data, year, monthList, county) {
+  let filteredResult = data.filter((entry) => {
+    return (
+      entry.縣市 === county &&
+      moment(entry.日期).isSame(moment(year, "YYYY"), "year")
+    );
+  });
+
+  return filteredResult.reduce(
+    (sum, item) => {
+      sum["house"] += Numeral(item["住宅部門售電量(度)"]);
+      sum["service"] += Numeral(item["服務業部門(含包燈)(度)"]);
+      sum["agri"] += Numeral(item["農林漁牧售電量(度)"]);
+      sum["indus"] += Numeral(item["工業部門售電量(度)"]);
+      sum["total"] += Numeral(item["合計售電量(度)"]);
+      return sum;
+    },
+    {
+      name: year + "年售電量(度)",
+      house: 0,
+      service: 0,
+      agri: 0,
+      indus: 0,
+      total: 0
+    }
+  );
 }

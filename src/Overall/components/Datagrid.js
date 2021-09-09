@@ -6,7 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+//import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles({
   table: {
@@ -26,9 +26,9 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9)
 ];
 
-console.log(rows);
+//console.log(rows);
 
-export default function BasicTable() {
+export default function BasicTable(props) {
   const classes = useStyles();
 
   return (
@@ -45,15 +45,26 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {props.data.map((row) => (
+            <TableRow key={row.key}>
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">
+                {row.house.toLocaleString("en-US")}
+              </TableCell>
+              <TableCell align="right">
+                {row.service.toLocaleString("en-US")}
+              </TableCell>
+              <TableCell align="right">
+                {row.agri.toLocaleString("en-US")}
+              </TableCell>
+              <TableCell align="right">
+                {row.indus.toLocaleString("en-US")}
+              </TableCell>
+              <TableCell align="right">
+                {row.total.toLocaleString("en-US")}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
