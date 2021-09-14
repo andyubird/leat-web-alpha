@@ -58,6 +58,31 @@ export default function Overall() {
     total: (diffData.total / baseData.total) * 100
   };
 
+  let chartKeys = [state.compYear, state.baseYear];
+
+  let chartData = [
+    {
+      sector: "住宅",
+      [state.baseYear]: baseData.house / 100000000,
+      [state.compYear]: compData.house / 100000000
+    },
+    {
+      sector: "服務業",
+      [state.baseYear]: baseData.service / 100000000,
+      [state.compYear]: compData.service / 100000000
+    },
+    {
+      sector: "農林漁牧業",
+      [state.baseYear]: baseData.agri / 100000000,
+      [state.compYear]: compData.agri / 100000000
+    },
+    {
+      sector: "工業",
+      [state.baseYear]: baseData.indus / 100000000,
+      [state.compYear]: compData.indus / 100000000
+    }
+  ];
+
   function setCounty(county) {
     setState({ ...state, county: county });
   }
@@ -108,7 +133,7 @@ export default function Overall() {
       </Box>
       <Box height={500}>
         {/*<<h2>部門長條圖</h2>*/}
-        <SectorBarChart />
+        <SectorBarChart data={chartData} keys={chartKeys} />
       </Box>
       <Box height={500}>
         {/*<h2>逐月長條圖</h2>*/}
