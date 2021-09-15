@@ -106,3 +106,28 @@ export function useFilter(data, year, monthList, county) {
     }
   );
 }
+
+export function useFilterMonthly(data, year, monthList, county) {
+  let filteredResult = data.filter((entry) => {
+    return (
+      entry.縣市 === county &&
+      moment(entry.日期).isSame(moment(year, "YYYY"), "year")
+    );
+  });
+
+  let formattedResult = filteredResult.map((obj) => {
+    let element = {};
+    element[obj.key] = obj.value;
+
+    element["月"] = moment(obj["日期"], "YYYY年MM月").format("M").toString();
+    element["住宅部門售電量(度)"] = obj["住宅部門售電量(度)"] / 10000000;
+    element["服務業部門(含包燈)(度)"] =
+      obj["服務業部門(含包燈)(度)"] / 10000000;
+    element["農林漁牧售電量(度)"] = obj["農林漁牧售電量(度)"] / 10000000;
+    element["工業部門售電量(度)"] = obj["工業部門售電量(度)"] / 10000000;
+
+    return element;
+  });
+
+  return formattedResult.reverse();
+}

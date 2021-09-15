@@ -8,7 +8,11 @@ import Container from "@material-ui/core/Container";
 import Datagrid from "./components/Datagrid";
 import SectorBarChart from "./components/SectorBarChart";
 import MonthlyBarChart from "./components/MonthlyBarChart";
-import { useFetchData, useFilter } from "../utils/DataProcessor";
+import {
+  useFetchData,
+  useFilter,
+  useFilterMonthly
+} from "../utils/DataProcessor";
 //import { Paper } from "@material-ui/core";
 
 function log(txt) {
@@ -21,6 +25,13 @@ export default function Overall() {
     baseYear: 2021,
     compYear: 2020
   });
+
+  let monthlyChartData = useFilterMonthly(
+    useFetchData(),
+    state.baseYear,
+    123,
+    state.county
+  );
 
   let baseData = {
     key: "baseData",
@@ -137,7 +148,7 @@ export default function Overall() {
       </Box>
       <Box height={500}>
         {/*<h2>逐月長條圖</h2>*/}
-        <MonthlyBarChart />
+        <MonthlyBarChart data={monthlyChartData} />
       </Box>
     </Container>
   );

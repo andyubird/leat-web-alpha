@@ -28,7 +28,8 @@ const cities = [
   "連江縣",
   "基隆市",
   "新竹市",
-  "嘉義市"
+  "嘉義市",
+  "合計"
 ];
 
 export default function BasicSelect(props) {
