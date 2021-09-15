@@ -17,7 +17,7 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => (
       "工業部門售電量(度)"
     ]}
     indexBy="月"
-    margin={{ top: 50, right: 130, bottom: 100, left: 60 }}
+    margin={{ top: 50, right: 160, bottom: 100, left: 60 }}
     padding={0.3}
     valueScale={{ type: "linear" }}
     indexScale={{ type: "band", round: true }}

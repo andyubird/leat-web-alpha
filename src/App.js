@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./styles.css";
 import {
   BrowserRouter as Router,
@@ -53,6 +54,18 @@ function MyTabs() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const ele = document.getElementById("ipl-progress-indicator");
+    if (ele) {
+      // fade out
+      ele.classList.add("available");
+      setTimeout(() => {
+        // remove from DOM
+        ele.outerHTML = "";
+      }, 2000);
+    }
+  });
+
   return (
     <div className="App">
       <Router>
