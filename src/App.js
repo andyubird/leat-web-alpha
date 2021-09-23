@@ -24,15 +24,7 @@ function MyTabs() {
   // This means that if you have nested routes like:
   // users, users/new, users/edit.
   // Then the order should be ['users/add', 'users/edit', 'users'].
-  const routeMatch = useRouteMatch([
-    "/overall",
-    "/service",
-    "/gov",
-    "/agri",
-    "/industry",
-    "/resident",
-    "/"
-  ]);
+  const routeMatch = useRouteMatch(["/overall", "/sector", "/"]);
   const currentTab = routeMatch?.path;
 
   return (
@@ -43,12 +35,13 @@ function MyTabs() {
       aria-label="scrollable auto tabs example"
     >
       <Tab label="首頁" value="/" to="/" component={Link} />
-      <Tab label="整體" value="/overall" to="/overall" component={Link} />
-      <Tab label="服務業" value="/service" to="/service" component={Link} />
-      <Tab label="機關" value="/gov" to="/gov" component={Link} />
-      <Tab label="農林漁牧業" value="/agri" to="/agri" component={Link} />
-      <Tab label="工業" value="/industry" to="/industry" component={Link} />
-      <Tab label="住宅" value="/resident" to="/resident" component={Link} />
+      <Tab
+        label="整體用電分析"
+        value="/overall"
+        to="/overall"
+        component={Link}
+      />
+      <Tab label="部門用電分析" value="/sector" to="/sector" component={Link} />
     </Tabs>
   );
 }

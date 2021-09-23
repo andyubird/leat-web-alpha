@@ -120,11 +120,11 @@ export function useFilterMonthly(data, year, monthList, county) {
     element[obj.key] = obj.value;
 
     element["月"] = moment(obj["日期"], "YYYY年MM月").format("M").toString();
-    element["住宅部門售電量(度)"] = obj["住宅部門售電量(度)"] / 10000000;
-    element["服務業部門(含包燈)(度)"] =
+    element["住宅部門售電量(億度)"] = obj["住宅部門售電量(度)"] / 10000000;
+    element["服務業部門(含包燈)(億度)"] =
       obj["服務業部門(含包燈)(度)"] / 10000000;
-    element["農林漁牧售電量(度)"] = obj["農林漁牧售電量(度)"] / 10000000;
-    element["工業部門售電量(度)"] = obj["工業部門售電量(度)"] / 10000000;
+    element["農林漁牧售電量(億度)"] = obj["農林漁牧售電量(度)"] / 10000000;
+    element["工業部門售電量(億度)"] = obj["工業部門售電量(度)"] / 10000000;
 
     return element;
   });

@@ -11,17 +11,17 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => (
   <ResponsiveBar
     data={data}
     keys={[
-      "住宅部門售電量(度)",
-      "服務業部門(含包燈)(度)",
-      "農林漁牧售電量(度)",
-      "工業部門售電量(度)"
+      "住宅部門售電量(億度)",
+      "服務業部門(含包燈)(億度)",
+      "農林漁牧售電量(億度)",
+      "工業部門售電量(億度)"
     ]}
     indexBy="月"
     margin={{ top: 50, right: 160, bottom: 100, left: 60 }}
     padding={0.3}
     valueScale={{ type: "linear" }}
     indexScale={{ type: "band", round: true }}
-    valueFormat={{ format: ".2", enabled: true }}
+    //valueFormat={{ format: ".2", enabled: true }}
     colors={{ scheme: "nivo" }}
     borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
     axisTop={null}
@@ -42,7 +42,13 @@ const MyResponsiveBar = ({ data /* see data tab */ }) => (
       legendPosition: "middle",
       legendOffset: -40
     }}
-    enableLabel={false}
+    enableLabel={true}
+    valueFormat={(value) =>
+      `${Number(value).toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`
+    }
     labelSkipWidth={12}
     labelSkipHeight={12}
     labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}

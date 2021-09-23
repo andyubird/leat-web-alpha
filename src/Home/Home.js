@@ -5,7 +5,8 @@ export default function Home() {
     <Container>
       {/* <img src="./ADEN.png" alt="ADEN"></img> */}
       <Box mt={3}>
-        <Typography variant="h5">地方電力分析工具 網頁版 Alpha 0.1</Typography>
+        <Typography variant="h5">地方電力分析工具</Typography>
+        <Typography variant="h6">網頁版 Alpha 0.1</Typography>
       </Box>
     </Container>
   );

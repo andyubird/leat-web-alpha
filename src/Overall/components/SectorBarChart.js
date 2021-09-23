@@ -14,7 +14,8 @@ const MyResponsiveBar = ({ data /* see data tab */, keys }) => (
     indexBy="sector"
     valueFormat={(value) =>
       `${Number(value).toLocaleString("en-US", {
-        minimumFractionDigits: 2
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
       })}`
     }
     margin={{ top: 50, right: 70, bottom: 50, left: 60 }}
